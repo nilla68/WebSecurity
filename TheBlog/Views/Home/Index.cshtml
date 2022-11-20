@@ -1,0 +1,23 @@
+﻿@model List<BlogPostEntity>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center my-5">
+    <h1 class="display-4 mb-5">Welcome to The Blog</h1>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <p class="mb-5">To create a blog post please log in!</p>
+    }
+
+    @foreach (var blogPost in Model)
+    {
+        <div class="card shadow p-3 bg-white rounded">
+            <h2 class="card-header">@blogPost.Headline</h2>
+            <div class="card-text">@Html.Raw(blogPost.Text)</div>
+            <div class="blog-date">@blogPost.Date</div>
+        </div>
+    }
+</div>

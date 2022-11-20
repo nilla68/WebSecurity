@@ -1,0 +1,25 @@
+﻿@model BlogPostEntity
+
+@{
+    ViewData["Title"] = "Create Blog Post";
+}
+
+<h1 class="display-4 my-5 text-center">Create a Blog Post</h1>
+
+<form asp-action="CreateBlogPost">
+    <div class="shadow p-3 bg-white rounded">
+        <div class="form-group my-3">
+            <label asp-for="Headline" class="control-label mb-2"></label>
+            <input asp-for="Headline" class="form-control" placeholder="Enter your headline here.." />
+            <span asp-validation-for="Headline" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Text" class="control-label mb-2"></label>
+            <textarea asp-for="Text" class="form-control" rows="6" placeholder="Enter your blog post here.."></textarea>
+            <span asp-validation-for="Text" class="text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <input type="submit" value="Save Blog Post" class="btn btn-success" />
+        </div>
+    </div>
+</form>
